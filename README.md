@@ -9,7 +9,7 @@ At this moment there's only a simple tetris map in a black screen.
 There is also a scoring system but I have to make it better.  
 ##Building instructions
 At first, you have to install [allegro](https://www.allegro.cc/files/).  
-In _makefile_, if you had not installed allegro in __ you must change line x to your allegro installation path.
-In the file , you must adapt the path to your document folder.
+In _makefile_, if you had not installed allegro in _/usr/local/lib_ you must change line x to your allegro installation path.
+In the file _allegroprueba2.cpp_, you must adapt the path to your document folder.
 
 With these steps you should make available my tetris implementation in your computer. Enjoy!
