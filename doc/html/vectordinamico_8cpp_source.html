@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Pila Min: Fichero Fuente include/vectordinamico.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Pila Min
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('vectordinamico_8cpp_source.html','');});
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle">
+<div class="title">vectordinamico.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// #include &lt;cola.h&gt;  El codigo ya se incluye en cola.h</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/* _________________________________________________________________________ */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classvector__d.html#a632df8deb0b1fb68940659114cdfc265">   13</a></span>&#160;<a class="code" href="classvector__d.html#a46de905f939ae38e0f7a361b2c889c5c">vector_d&lt;T&gt;::vector_d</a>(<span class="keyword">const</span> <a class="code" href="classvector__d.html">vector_d&lt;T&gt;</a> &amp; v):cap(v.cap),usados(v.usados){</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <a class="code" href="classvector__d.html#a5bc3c390c6a3a47ae137ea1b7a7c7e47">v_int</a>=<span class="keyword">new</span> T[<a class="code" href="classvector__d.html#aa317e1425f34d77f9c5a9f648adba535">cap</a>];</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="classvector__d.html#aa317e1425f34d77f9c5a9f648adba535">cap</a>;i++)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    *(<a class="code" href="classvector__d.html#a5bc3c390c6a3a47ae137ea1b7a7c7e47">v_int</a>+i)=v[i];</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/* _________________________________________________________________________ */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classvector__d.html#aedd160f7e6a5762840ebcab4256508c1">   22</a></span>&#160;<a class="code" href="classvector__d.html#aedd160f7e6a5762840ebcab4256508c1">vector_d&lt;T&gt;::~vector_d</a>(){</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">delete</span> [] v_int;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/* _________________________________________________________________________ */</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classvector__d.html#abaf8a389f3d0e4e039c2635b7389a105">   29</a></span>&#160;<a class="code" href="classvector__d.html">vector_d&lt;T&gt;</a>&amp; <a class="code" href="classvector__d.html#abaf8a389f3d0e4e039c2635b7389a105">vector_d&lt;T&gt;::operator=</a>(<span class="keyword">const</span> <a class="code" href="classvector__d.html">vector_d&lt;T&gt;</a> &amp; v){</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordflow">if</span>(cap!=v.<a class="code" href="classvector__d.html#aa317e1425f34d77f9c5a9f648adba535">cap</a>){</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">delete</span>[] v_int;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    v_int=<span class="keyword">new</span> T[cap];</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  usados=v.<a class="code" href="classvector__d.html#a4c946500272b4e882fe64478b4b977a9">usados</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;usados;i++)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    *(v_int+i)=v[i];</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordflow">return</span> *<span class="keyword">this</span>; <span class="comment">//Devolvemos el objeto para permitir el encadenamiento (a=b=c)</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/* _________________________________________________________________________ */</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classvector__d.html#a2982a8a0ad99eec0d66d19b7513c59c7">   44</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classvector__d.html#a2982a8a0ad99eec0d66d19b7513c59c7">vector_d&lt;T&gt;::push_back</a>(<span class="keyword">const</span> T &amp; elem){</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">if</span>(usados==cap)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    cambiar_cap((usados==0?2:2*cap));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  *(v_int+usados)=elem;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  usados++;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">/* _________________________________________________________________________ */</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classvector__d.html#af3250cf08d664a59a5a61ffa205c8278">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classvector__d.html#af3250cf08d664a59a5a61ffa205c8278">vector_d&lt;T&gt;::cambiar_cap</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n){</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">if</span>(n==usados)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  T* aux=<span class="keyword">new</span> T[n];</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;usados;i++)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    *(aux+i)=*(v_int+i);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">delete</span>[] v_int;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  v_int=aux;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  cap=n;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">/* _________________________________________________________________________ */</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classvector__d.html#a2208dff2a3333ebf844883fe9b4fbfcc">   67</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classvector__d.html#a2208dff2a3333ebf844883fe9b4fbfcc">vector_d&lt;T&gt;::resize</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n){</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  cambiar_cap(n);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  usados=n;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">/* _________________________________________________________________________ */</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classvector__d.html#a3411d96a8dd4fc26ca48cc5c24b993d1">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classvector__d.html#a3411d96a8dd4fc26ca48cc5c24b993d1">vector_d&lt;T&gt;::pop_back</a>(){</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  usados--;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordflow">if</span> (usados&lt;cap/4)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    cambiar_cap(cap/2);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="ttc" id="classvector__d_html_a4c946500272b4e882fe64478b4b977a9"><div class="ttname"><a href="classvector__d.html#a4c946500272b4e882fe64478b4b977a9">vector_d::usados</a></div><div class="ttdeci">unsigned int usados</div><div class="ttdoc">Número de elementos usados. </div><div class="ttdef"><b>Definition:</b> <a href="vectordinamico_8h_source.html#l00047">vectordinamico.h:47</a></div></div>
+<div class="ttc" id="classvector__d_html_aa317e1425f34d77f9c5a9f648adba535"><div class="ttname"><a href="classvector__d.html#aa317e1425f34d77f9c5a9f648adba535">vector_d::cap</a></div><div class="ttdeci">unsigned int cap</div><div class="ttdoc">Capacidad del vector. </div><div class="ttdef"><b>Definition:</b> <a href="vectordinamico_8h_source.html#l00046">vectordinamico.h:46</a></div></div>
+<div class="ttc" id="classvector__d_html_a3411d96a8dd4fc26ca48cc5c24b993d1"><div class="ttname"><a href="classvector__d.html#a3411d96a8dd4fc26ca48cc5c24b993d1">vector_d::pop_back</a></div><div class="ttdeci">void pop_back()</div><div class="ttdoc">Quita último elemento del vector. </div><div class="ttdef"><b>Definition:</b> <a href="vectordinamico_8cpp_source.html#l00075">vectordinamico.cpp:75</a></div></div>
+<div class="ttc" id="classvector__d_html_a2982a8a0ad99eec0d66d19b7513c59c7"><div class="ttname"><a href="classvector__d.html#a2982a8a0ad99eec0d66d19b7513c59c7">vector_d::push_back</a></div><div class="ttdeci">void push_back(const T &amp;elem)</div><div class="ttdoc">Añade un elemento al final del vector. </div><div class="ttdef"><b>Definition:</b> <a href="vectordinamico_8cpp_source.html#l00044">vectordinamico.cpp:44</a></div></div>
+<div class="ttc" id="classvector__d_html"><div class="ttname"><a href="classvector__d.html">vector_d</a></div><div class="ttdoc">T.D.A. P. </div><div class="ttdef"><b>Definition:</b> <a href="vectordinamico_8h_source.html#l00041">vectordinamico.h:41</a></div></div>
+<div class="ttc" id="classvector__d_html_abaf8a389f3d0e4e039c2635b7389a105"><div class="ttname"><a href="classvector__d.html#abaf8a389f3d0e4e039c2635b7389a105">vector_d::operator=</a></div><div class="ttdeci">vector_d &amp; operator=(const vector_d&lt; T &gt; &amp;v)</div><div class="ttdoc">Operador de asignación. </div><div class="ttdef"><b>Definition:</b> <a href="vectordinamico_8cpp_source.html#l00029">vectordinamico.cpp:29</a></div></div>
+<div class="ttc" id="classvector__d_html_a2208dff2a3333ebf844883fe9b4fbfcc"><div class="ttname"><a href="classvector__d.html#a2208dff2a3333ebf844883fe9b4fbfcc">vector_d::resize</a></div><div class="ttdeci">void resize(unsigned int n)</div><div class="ttdoc">Cambia el tamaño del vector. </div><div class="ttdef"><b>Definition:</b> <a href="vectordinamico_8cpp_source.html#l00067">vectordinamico.cpp:67</a></div></div>
+<div class="ttc" id="classvector__d_html_aedd160f7e6a5762840ebcab4256508c1"><div class="ttname"><a href="classvector__d.html#aedd160f7e6a5762840ebcab4256508c1">vector_d::~vector_d</a></div><div class="ttdeci">~vector_d()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="vectordinamico_8cpp_source.html#l00022">vectordinamico.cpp:22</a></div></div>
+<div class="ttc" id="classvector__d_html_af3250cf08d664a59a5a61ffa205c8278"><div class="ttname"><a href="classvector__d.html#af3250cf08d664a59a5a61ffa205c8278">vector_d::cambiar_cap</a></div><div class="ttdeci">void cambiar_cap(unsigned int n)</div><div class="ttdoc">Función privada para redimensionar un vector y cambiar su capacidad sin afectar al número de elemento...</div><div class="ttdef"><b>Definition:</b> <a href="vectordinamico_8cpp_source.html#l00053">vectordinamico.cpp:53</a></div></div>
+<div class="ttc" id="classvector__d_html_a5bc3c390c6a3a47ae137ea1b7a7c7e47"><div class="ttname"><a href="classvector__d.html#a5bc3c390c6a3a47ae137ea1b7a7c7e47">vector_d::v_int</a></div><div class="ttdeci">T * v_int</div><div class="ttdoc">Vector interno. </div><div class="ttdef"><b>Definition:</b> <a href="vectordinamico_8h_source.html#l00045">vectordinamico.h:45</a></div></div>
+<div class="ttc" id="classvector__d_html_a46de905f939ae38e0f7a361b2c889c5c"><div class="ttname"><a href="classvector__d.html#a46de905f939ae38e0f7a361b2c889c5c">vector_d::vector_d</a></div><div class="ttdeci">vector_d(unsigned int i=0)</div><div class="ttdoc">Constructor según tamaño. </div><div class="ttdef"><b>Definition:</b> <a href="vectordinamico_8h_source.html#l00058">vectordinamico.h:58</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<hr>
+<small>ETS Ingeniería Informática y Telecomunicaciones. Universidad de Granada.
+</small>
