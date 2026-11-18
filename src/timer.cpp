@@ -1,4 +1,4 @@
-#include "Timer.h"
+#include "timer.h"
 
 Timer::Timer(unsigned int Delay)
         :itsDelay(Delay),isActive(true)
