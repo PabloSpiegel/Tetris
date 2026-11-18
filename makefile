@@ -4,7 +4,7 @@ SRC=src
 OBJ=obj
 LIB=lib
 
-ALLEGRO_PATH=/usr/local/lib
+ALLEGRO_PATH=/usr/local/lib/
 
 TETRIS_OBJECTS=$(OBJ)/tetromino.o $(OBJ)/timer.o $(OBJ)/coordinate.o $(OBJ)/tetrismap.o
 
@@ -13,15 +13,15 @@ LDFLAGS= -L$(LIB) -ltetris
 ALLEGROFLAGS= $(LDFLAGS) -L$(ALLEGRO_PATH) -lallegro_main -lallegro -lallegro_primitives -lallegro_image -lallegro_font -lallegro_ttf -lallegro_audio -lallegro_acodec
 CPPFLAGS= -Wall -g -I$(INC) -c
 
-all:$(BIN)/prueba $(BIN)/allegro $(BIN)/allegro2 $(OBJ)/timer.o
+all:$(BIN)/tetris-cli $(BIN)/allegrotest $(BIN)/tetris $(OBJ)/timer.o
 
 
-$(BIN)/allegro: $(OBJ)/allegroprueba.o $(LIB)/libtetris.a
+$(BIN)/allegrotest: $(OBJ)/allegrotest.o $(LIB)/libtetris.a
 	$(CXX) $< -o $@ $(ALLEGROFLAGS)
 
-$(BIN)/prueba: $(OBJ)/mainprueba.o $(LIB)/libtetris.a
+$(BIN)/tetris-cli: $(OBJ)/mainprueba.o $(LIB)/libtetris.a
 	$(CXX) $< -o $@ $(LDFLAGS)
-$(BIN)/allegro2: $(OBJ)/allegroprueba2.o $(LIB)/libtetris.a
+$(BIN)/tetris: $(OBJ)/allegroprueba2.o $(LIB)/libtetris.a
 	$(CXX) $< -o $@ $(ALLEGROFLAGS)
 
 
@@ -38,7 +38,7 @@ $(OBJ)/tetrismap.o: $(SRC)/tetrismap.cpp $(INC)/overloading.h $(INC)/tetromino.h
 	$(CXX) $(CPPFLAGS) $< -o $@
 $(OBJ)/mainprueba.o:$(SRC)/mainprueba.cpp $(INC)/overloading.h $(INC)/tetromino.h $(INC)/coordinate.h
 	$(CXX) $(CPPFLAGS) $< -o $@
-$(OBJ)/allegroprueba.o:$(SRC)/allegroprueba.cpp $(INC)/overloading.h $(INC)/tetromino.h $(INC)/tetrismap.h $(INC)/coordinate.h
+$(OBJ)/allegrotest.o:$(SRC)/allegrotest.cpp $(INC)/overloading.h $(INC)/tetromino.h $(INC)/tetrismap.h $(INC)/coordinate.h
 	$(CXX) $(CPPFLAGS) $< -o $@
 $(OBJ)/allegroprueba2.o:$(SRC)/allegroprueba2.cpp $(INC)/overloading.h $(INC)/tetromino.h $(INC)/tetrismap.h $(INC)/coordinate.h
 	$(CXX) $(CPPFLAGS) $< -o $@
