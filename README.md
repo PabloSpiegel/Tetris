@@ -8,8 +8,5 @@ I want to make available to every computer with using only the command make.
 At this moment there's only a simple tetris map in a black screen.
 There is also a scoring system but I have to make it better.  
 ## Building instructions
-At first, you have to install [allegro](https://www.allegro.cc/files/).  
-On the _makefile_, if you had not installed allegro in _/usr/local/lib_ you must change line x to your allegro installation path.
-In the file _allegroprueba2.cpp_, you must adapt the path to your document folder.
-
-With these steps you should make available my tetris implementation in your computer. Enjoy!
+At first, you have to install [allegro](https://www.allegro.cc/files/) and its dependencies.  
+On the _makefile_ set the variable ALLEGRO_PATH to your current Allegro installation

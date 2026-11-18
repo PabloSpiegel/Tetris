@@ -4,10 +4,14 @@ SRC=src
 OBJ=obj
 LIB=lib
 
+ALLEGRO_PATH=/usr/local/lib
+
+TETRIS_OBJECTS=$(OBJ)/tetromino.o $(OBJ)/timer.o $(OBJ)/coordinate.o $(OBJ)/tetrismap.o
+
 CXX=g++
 LDFLAGS= -L$(LIB) -ltetris
-ALLEGROFLAGS= $(LDFLAGS) -L/usr/local/lib -lallegro_main -lallegro -lallegro_primitives -lallegro_image -lallegro_font -lallegro_ttf -lallegro_audio -lallegro_acodec 
-CPPFLAGS= -Wall -g -I$(INC) -c 
+ALLEGROFLAGS= $(LDFLAGS) -L$(ALLEGRO_PATH) -lallegro_main -lallegro -lallegro_primitives -lallegro_image -lallegro_font -lallegro_ttf -lallegro_audio -lallegro_acodec
+CPPFLAGS= -Wall -g -I$(INC) -c
 
 all:$(BIN)/prueba $(BIN)/allegro $(BIN)/allegro2 $(OBJ)/timer.o
 
@@ -21,7 +25,7 @@ $(BIN)/allegro2: $(OBJ)/allegroprueba2.o $(LIB)/libtetris.a
 	$(CXX) $< -o $@ $(ALLEGROFLAGS)
 
 
-$(LIB)/libtetris.a: $(OBJ)/tetromino.o $(OBJ)/timer.o $(OBJ)/coordinate.o $(OBJ)/tetrismap.o
+$(LIB)/libtetris.a: $(TETRIS_OBJECTS)
 	ar rvs $@ $^
 
 
