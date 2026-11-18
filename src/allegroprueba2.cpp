@@ -51,7 +51,7 @@ int main(int argc, char **argv)
       score[i]='0';
    score[6]=0;
    cout<<log10(123413)+1;
-   
+
    srand(time(NULL));
    ALLEGRO_DISPLAY *display = NULL;
    ALLEGRO_EVENT_QUEUE *event_queue = NULL;
@@ -66,22 +66,22 @@ int main(int argc, char **argv)
    bool key[4] = { false, false, false, false };
    bool redraw = true;
    bool doexit = false;
- 
+
    if(!al_init()) {
       fprintf(stderr, "failed to initialize allegro!\n");
       return -1;
    }
- 
+
     al_install_keyboard();
     al_init_primitives_addon();
     al_init_image_addon();
-       
+
    timer = al_create_timer(1.0 / FPS);
    if(!timer) {
       fprintf(stderr, "failed to create timer!\n");
       return -1;
    }
- 
+
    display = al_create_display(SCREEN_W, SCREEN_H);
    if(!display) {
       fprintf(stderr, "failed to create display!\n");
@@ -96,10 +96,10 @@ int main(int argc, char **argv)
       fprintf(stderr, "failed to initialize audio codecs!\n");
       return -1;
    }
-   sample = al_load_sample( "/Users/Pablo/Documents/Programacion/C++/Proyectoallegro/Tetris/datos/SneakySnitch.wav" );
- 
+   sample = al_load_sample( "./datos/SneakySnitch.wav" );
+
    if (!sample){
-      printf( "Audio clip sample not loaded!\n" ); 
+      printf( "Audio clip sample not loaded!\n" );
       return -1;
    }
    bouncer = al_create_bitmap(BOUNCER_SIZE, BOUNCER_SIZE);
@@ -109,7 +109,7 @@ int main(int argc, char **argv)
       al_destroy_timer(timer);
       return -1;
    }
-   bitmapITO = al_load_bitmap("/Users/Pablo/Documents/Programacion/C++/Proyectoallegro/Tetris/datos/bitmapprueba.png");
+   bitmapITO = al_load_bitmap("./datos/bitmapprueba.png");
    if(!bitmapITO) {
       fprintf(stderr, "failed to load bitmap!\n");
       al_destroy_display(display);
@@ -117,7 +117,7 @@ int main(int argc, char **argv)
       al_destroy_bitmap(bouncer);
       return -1;
    }
-   bitmapITO = al_load_bitmap("/Users/Pablo/Documents/Programacion/C++/Proyectoallegro/Tetris/datos/bitmapITO.png");
+   bitmapITO = al_load_bitmap("./datos/bitmapITO.png");
    if(!bitmapITO) {
       fprintf(stderr, "failed to load bitmap!\n");
       al_destroy_display(display);
@@ -125,7 +125,7 @@ int main(int argc, char **argv)
       al_destroy_bitmap(bouncer);
       return -1;
    }
-   bitmapJS = al_load_bitmap("/Users/Pablo/Documents/Programacion/C++/Proyectoallegro/Tetris/datos/bitmapJS.png");
+   bitmapJS = al_load_bitmap("./datos/bitmapJS.png");
    if(!bitmapJS) {
       fprintf(stderr, "failed to load bitmap!\n");
       al_destroy_display(display);
@@ -134,7 +134,7 @@ int main(int argc, char **argv)
       al_destroy_bitmap(bitmapITO);
       return -1;
    }
-   bitmapLZ = al_load_bitmap("/Users/Pablo/Documents/Programacion/C++/Proyectoallegro/Tetris/datos/bitmapLZ.png");
+   bitmapLZ = al_load_bitmap("./datos/bitmapLZ.png");
    if(!bitmapJS) {
       fprintf(stderr, "failed to load bitmap!\n");
       al_destroy_display(display);
@@ -151,11 +151,11 @@ int main(int argc, char **argv)
    sprites[TTRS]=sprites[TTRJ]=bitmapJS;
 
    sprites[TTRL]=sprites[TTRZ]=bitmapLZ;
- 
+
    al_clear_to_color(al_map_rgb(255, 255, 0));
 
    al_set_target_bitmap(al_get_backbuffer(display));
- 
+
    event_queue = al_create_event_queue();
    if(!event_queue) {
       fprintf(stderr, "failed to create event_queue!\n");
@@ -164,19 +164,19 @@ int main(int argc, char **argv)
       al_destroy_timer(timer);
       return -1;
    }
-    ALLEGRO_FONT *font = al_load_ttf_font("/Users/Pablo/Documents/Programacion/C++/Proyectoallegro/Tetris/datos/PressStart2P.ttf",30,0 );
- 
+    ALLEGRO_FONT *font = al_load_ttf_font("./datos/PressStart2P.ttf",30,0 );
+
    if (!font){
       fprintf(stderr, "Could not load 'pirulen.ttf'.\n");
       return -1;
    }
- 
+
    al_register_event_source(event_queue, al_get_display_event_source(display));
- 
+
    al_register_event_source(event_queue, al_get_timer_event_source(timer));
- 
+
    al_register_event_source(event_queue, al_get_keyboard_event_source());
- 
+
    al_clear_to_color(al_map_rgb(255,255,0));
 
    al_start_timer(timer);
@@ -189,7 +189,7 @@ int main(int argc, char **argv)
    {
       ALLEGRO_EVENT ev;
       al_wait_for_event(event_queue, &ev);
- 
+
       if(ev.type == ALLEGRO_EVENT_TIMER/*?*/) {
           act_nothing=true;
           for(int i=0; i<ACT_SIZE;i++){
@@ -201,7 +201,7 @@ int main(int argc, char **argv)
           if(act_nothing){
             map.sendaction(ACT_SIZE);
           }
- 
+
          redraw = true;
       }
       else if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
@@ -213,23 +213,23 @@ int main(int argc, char **argv)
             case ALLEGRO_KEY_S:
                ttrkey[ACT_DOWN] = true;
                break;
- 
+
             case ALLEGRO_KEY_LEFT:
-            case ALLEGRO_KEY_A: 
+            case ALLEGRO_KEY_A:
                ttrkey[ACT_LEFT] = true;
                break;
- 
+
             case ALLEGRO_KEY_RIGHT:
-            case ALLEGRO_KEY_D: 
+            case ALLEGRO_KEY_D:
                ttrkey[ACT_RIGHT] = true;
                break;
-         
+
             case ALLEGRO_KEY_K:
-            case ALLEGRO_KEY_Z: 
+            case ALLEGRO_KEY_Z:
                ttrkey[ACT_CCW] = true;
                break;
             case ALLEGRO_KEY_L:
-            case ALLEGRO_KEY_X: 
+            case ALLEGRO_KEY_X:
                ttrkey[ACT_CW] = true;
                break;
             case ALLEGRO_KEY_ESCAPE:
@@ -244,31 +244,31 @@ int main(int argc, char **argv)
             case ALLEGRO_KEY_S:
                ttrkey[ACT_DOWN] = false;
                break;
- 
+
             case ALLEGRO_KEY_LEFT:
-            case ALLEGRO_KEY_A: 
+            case ALLEGRO_KEY_A:
                ttrkey[ACT_LEFT] = false;
                break;
- 
+
             case ALLEGRO_KEY_RIGHT:
-            case ALLEGRO_KEY_D: 
+            case ALLEGRO_KEY_D:
                ttrkey[ACT_RIGHT] = false;
                break;
-         
+
             case ALLEGRO_KEY_K:
-            case ALLEGRO_KEY_Z: 
+            case ALLEGRO_KEY_Z:
                ttrkey[ACT_CCW] = false;
                break;
             case ALLEGRO_KEY_L:
-            case ALLEGRO_KEY_X: 
+            case ALLEGRO_KEY_X:
                ttrkey[ACT_CW] = false;
                break;
          }
       }
- 
+
       if(redraw && al_is_event_queue_empty(event_queue)) {
          redraw = false;
- 
+
          draw_map(map);
       }
    }
@@ -284,6 +284,6 @@ int main(int argc, char **argv)
    al_destroy_timer(timer);
    al_destroy_display(display);
    al_destroy_event_queue(event_queue);
- 
+
    return 0;
 }
